@@ -1,11 +1,9 @@
 package nov30.streams;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class StreamDemo {
     public static void main(String[] args) {
@@ -14,6 +12,32 @@ public class StreamDemo {
         List<String> cheapDishes = dishes.stream().filter(d -> d.getPrice() < 10)
                 .map(Dish::getName).distinct().collect(Collectors.toList());
         System.out.println(cheapDishes);
+
+        List<Dish> paneers = dishes.stream().filter(d -> d.getName().toUpperCase().contains("PANEER"))
+                .filter(d -> d.getDishType() == DishType.VEG)
+                .collect(Collectors.toList());
+
+
+        System.out.println(paneers);
+
+        List<String> vegs = dishes.stream().map(Dish::getName).map(String::toUpperCase)
+                .filter(s -> !s.contains("CHICKEN")).collect(Collectors.toList());
+        System.out.println(vegs);
+
+        List<Double> prices = dishes.stream().distinct().map(Dish::getPrice).collect(Collectors.toList());
+
+        System.out.println(dishes.stream().map(Dish::getPrice).mapToDouble(Double::valueOf).sum());
+        Double reduce = dishes.stream().map(Dish::getPrice).reduce(0.0, (a, b) -> a + b);
+        System.out.println("reduce = " + reduce);
+        
+
+        double sum = 0;
+        for (Double price : prices) {
+            sum += price;
+        }
+
+
+
     }
 
 
@@ -40,6 +64,14 @@ public class StreamDemo {
                 .price(6.5).calories(400)
                 .dishType(DishType.VEG)
                 .ingredients(List.of("Chicken", "Butter", "Salt", "Chilli", "Tomoto")).build());
+        dishes.add(Dish.builder().name("Paneer Samosa")
+                .price(6.5).calories(400)
+                .dishType(DishType.VEG)
+                .ingredients(List.of("paneer", "Peas", "Salt", "Chilli")).build());
+        dishes.add(Dish.builder().name("Paneer Chicken")
+                .price(6.5).calories(400)
+                .dishType(DishType.VEG)
+                .ingredients(List.of("paneer", "Peas", "Salt", "Chilli")).build());
 
         return dishes;
 

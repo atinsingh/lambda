@@ -8,9 +8,6 @@ public class Run {
         pr.print("Hello World");
 
         FoodProcessor<String, Double> p = n-> Double.parseDouble(n);
-
-
-
         FoodProcessor<String , String> fp  = (s1)->s1.equalsIgnoreCase("Potato")?"Samosa":"Burger";
         System.out.println("fp.process(\"Potato\") = " + fp.process("Potato"));
 

@@ -1,4 +1,4 @@
-package nov30;
+package nov30.methodref;
 
 @FunctionalInterface
 public interface AloksConsumer {

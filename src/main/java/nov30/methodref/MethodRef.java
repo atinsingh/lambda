@@ -1,4 +1,4 @@
-package nov30;
+package nov30.methodref;
 
 public class MethodRef {
 
@@ -9,7 +9,13 @@ public class MethodRef {
     public static void main(String[] args) {
         AlokFunction<Integer, String> alok =  MethodRef::intToString;
         MethodRef obj = new MethodRef();
-        AloksConsumer consumer = obj::doSomthing;
+
+        AloksConsumer aloksConsumer = t->System.out.println(t);
+
+        AloksConsumer consumer = AwesomePrinter::printJokes;
+
+
+        consumer.printer("Hello World");
 
         System.out.println("alok.transform(1344) = " + alok.transform(1344));
 

@@ -1,4 +1,4 @@
-package dev07;
+package dec07;
 
 import lombok.*;
 

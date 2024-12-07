@@ -1,6 +1,7 @@
 package nov30.streams;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,7 +38,6 @@ public class StreamDemo {
         }
 
 
-
     }
 
 
@@ -58,7 +58,7 @@ public class StreamDemo {
                         .ingredients(List.of("Bread", "Cheese", "Salt", "Chilli", "Ketchup")).build());
         dishes.add(Dish.builder().name("Butter Chicken")
                         .price(6.5).calories(400)
-                        .dishType(DishType.VEG)
+                        .dishType(DishType.NOV_VEG)
                         .ingredients(List.of("Chicken", "Butter", "Salt", "Chilli", "Tomoto")).build());
         dishes.add(Dish.builder().name("Butter Chicken")
                 .price(6.5).calories(400)
@@ -72,6 +72,21 @@ public class StreamDemo {
                 .price(6.5).calories(400)
                 .dishType(DishType.VEG)
                 .ingredients(List.of("paneer", "Peas", "Salt", "Chilli")).build());
+
+        dishes.add(Dish.builder().name("Chicken Nugget")
+                .price(10.25).calories(800)
+                .dishType(DishType.NOV_VEG)
+                .ingredients(List.of("Chicken", "Bread Crump", "Salt", "Chilli")).build());
+
+        dishes.add(Dish.builder().name("Pizza")
+                .price(18.5).calories(1400)
+                .dishType(DishType.VEG)
+                .ingredients(List.of("paneer", "cheeze", "Salt", "Chilli")).build());
+
+        dishes.add(Dish.builder().name("Spaghetti")
+                .price(20.5).calories(700)
+                .dishType(DishType.NOV_VEG)
+                .ingredients(List.of("chiken", "Peas", "Salt", "Chilli")).build());
 
         return dishes;
 

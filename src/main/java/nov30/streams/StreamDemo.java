@@ -62,6 +62,10 @@ public class StreamDemo {
                         .ingredients(List.of("Chicken", "Butter", "Salt", "Chilli", "Tomoto")).build());
         dishes.add(Dish.builder().name("Butter Chicken")
                 .price(6.5).calories(400)
+                .dishType(DishType.NOV_VEG)
+                .ingredients(List.of("Chicken", "Butter", "Salt", "Chilli", "Tomoto")).build());
+        dishes.add(Dish.builder().name("Butter Chicken")
+                .price(6.5).calories(400)
                 .dishType(DishType.VEG)
                 .ingredients(List.of("Chicken", "Butter", "Salt", "Chilli", "Tomoto")).build());
         dishes.add(Dish.builder().name("Paneer Samosa")

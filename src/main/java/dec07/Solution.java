@@ -4,6 +4,7 @@ import nov30.streams.Dish;
 import nov30.streams.DishType;
 import nov30.streams.StreamDemo;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -75,8 +76,20 @@ public class Solution {
                 .distinct().collect(Collectors.toList());
 
         //System.out.println(collect1);
-        
+        DoubleSummaryStatistics summaryStatistics = dishes.stream().map(Dish::getPrice)
+                .collect(Collectors.summarizingDouble(d -> d));
 
+        System.out.println("summaryStatistics = " + summaryStatistics);
+
+        Map<String, Double> namePriceMap = dishes.stream().distinct()
+                .collect(Collectors.toMap(Dish::getName, Dish::getPrice,
+                        (a, b) -> a
+        ));
+        System.out.println("namePriceMap = " + namePriceMap);
+
+
+
+    
     }
 
     private static Employee raiseSalary(Employee e) {

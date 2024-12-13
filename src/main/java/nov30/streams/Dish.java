@@ -2,6 +2,7 @@ package nov30.streams;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
